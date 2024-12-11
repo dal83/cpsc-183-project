@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit a Case - Slap</title>
+    <script src="header.js" defer></script>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -85,25 +86,32 @@
             bottom: 0;
             width: 100%;
         }
+
+        #gif-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999; /* Ensure it is on top of everything */
+            text-align: center;
+        }
+
+        #gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SLAP</h1>
-        <p>Your gateway to trusted law firms</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="submission.html">Submit a Case</a>
-        <a href="partnerships.html">Partnerships</a>
-        <a href="about.html">About Us</a>
-    </nav>
+    <div id="header-container"></div>
     <main class="container">
         <h2>Submit Your Case</h2>
-        <form action="#" method="post">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+        <form id="case-form">
+            <label for="name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
@@ -113,9 +121,30 @@
 
             <button type="submit">Submit</button>
         </form>
+        <div id="gif-container"></div>
     </main>
     <footer>
         <p>&copy; 2024 Slap. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById('case-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            const gifContainer = document.getElementById('gif-container');
+
+            // Create an image element
+            const gif = document.createElement('img');
+            gif.src = 'https://itunes.apple.com/app/apple-store/id917932200?pt=39040802&ct=Media1GIFV2&mt=8'; // Replace with your GIF URL
+            gif.alt = 'Slap GIF';
+
+            // Append the GIF to the container
+            gifContainer.appendChild(gif);
+
+            // Remove the GIF after 3 seconds
+            setTimeout(() => {
+                gifContainer.removeChild(gif);
+            }, 3000);
+        });
+    </script>
 </body>
 </html>

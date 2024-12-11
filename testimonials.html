@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimonials - Slap</title>
+    <script src="header.js" defer></script>
     <style>
         body {
             font-family: 'Georgia', serif;
             margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body spans the full height of the viewport */
         }
 
         header {
@@ -44,6 +46,7 @@
         }
 
         .container {
+            flex: 1; /* Allows the container to grow and fill the available space */
             padding: 2rem;
             max-width: 800px;
             margin: 0 auto;
@@ -83,39 +86,33 @@
             background: #333;
             color: #fff;
             padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SLAP</h1>
-        <p>Your gateway to trusted law firms</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="submission.html">Submit a Case</a>
-        <a href="partnerships.html">Partnerships</a>
-        <a href="about.html">About Us</a>
-    </nav>
+    <div id="header-container"></div>
     <main class="container">
         <h2>Hear From Our Clients</h2>
         <p>(And we get a lot)</p>
         <div class="testimonial">
-            <img src="https://media.istockphoto.com/id/1444077739/photo/college-study-and-education-student-man-portrait-with-back-to-school-backpack-and-portfolio.jpg?s=612x612&w=0&k=20&c=PAQmqKzYd3OiKhlfrT1DVMQNkGu-drX4rtJ5p6y7D8c=" alt="John Smith">
+            <img src="https://coralearning.org/wp-content/uploads/2015/08/teaching-men-of-color-in-community-colleges.jpg" alt="John Smith">
             <div>
-                <p>“Rad Brosen called me out in class for using ChatGPT on my reading responses, which was a bold-faced lie. The lecture hall had over 50 potential girlfriends, none of whom want to date me now, making me single and lonely. Slap helped me sue Rad for defamation. I squeezed him dry, dropped the class, and my reputation was restored. Thanks, Slap!”</p>
-                <cite>- John P.</cite>
+                <p>“Prof. Rad Brosen called me out in class for using ChatGPT on my reading responses, which was a bold-faced lie. The lecture hall had over 50 potential girlfriends, none of whom want to date me now, making me single and lonely. Slap helped me sue Rad for defamation. I squeezed him dry, dropped the class, and my reputation was restored. Thanks, Slap!”</p>
+                <cite>- Jordan P.</cite>
             </div>
         </div>
         <div class="testimonial">
-            <img src="https://i.pinimg.com/474x/e5/3b/62/e53b6284d526d90dba055639a4edc508.jpg">
+            <img src="https://i.pinimg.com/474x/e5/3b/62/e53b6284d526d90dba055639a4edc508.jpg" alt="Lynda R.">
             <div>
-                <p>“My seven year old’s friend called me a “poopyface” on Roblox, and I’m a plumber, so this really hurt my reputation. Slap connected me with a small law firm in Boston and got me the justice I deserved.”</p>
+                <p>“My seven-year-old’s friend called me a ‘poopyface’ on Roblox, and I’m a plumber, so this really hurt my reputation. Slap connected me with a small law firm in Boston and got me the justice I deserved.”</p>
                 <cite>- Lynda R.</cite>
+            </div>
+        </div>
+        <div class="testimonial">
+            <img src="https://media.istockphoto.com/id/1444077739/photo/college-study-and-education-student-man-portrait-with-back-to-school-backpack-and-portfolio.jpg?s=612x612&w=0&k=20&c=PAQmqKzYd3OiKhlfrT1DVMQNkGu-drX4rtJ5p6y7D8c=" alt="Lynda R.">
+            <div>
+                <p>“This crazy ex-TA of mine (who I was techincally also dating) hacked into my email and found out I was sleeping with my divinity school professor. He exposed the affair to my deeply devout Christian parents and, even worse, stopped helping me with psets. My life was spiraling out of control, and my grade was slipping toward an A-, but SLAP stepped in and connected me with a legal team that specializes in privacy violations and academic disputes. Thanks to SLAP, I regained control over my life and can be my true self.”</p>
+                <cite>- Ryan B.</cite>
             </div>
         </div>
     </main>

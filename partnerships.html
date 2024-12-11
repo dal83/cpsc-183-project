@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partnering Firms</title>
+    <title>SLAPP Service - SLAP</title>
+    <script src="header.js" defer></script>
+
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -47,7 +49,51 @@
             padding: 2rem;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        h2 {
             text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .partner-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .partner {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .partner img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .partner h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .partner p {
+            margin: 0.5rem 0 0;
+            color: #555;
         }
 
         footer {
@@ -55,29 +101,51 @@
             background: #333;
             color: #fff;
             padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>SLAP</h1>
-        <p>Your gateway to trusted law firms</p>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="submission.html">Submit a Case</a>
-        <a href="partnerships.html">Partnerships</a>
-        <a href="about.html">About Us</a>
-    </nav>
+    <div id="header-container"></div>
     <main class="container">
-        <h2>Our Partnering Law Firms</h2>
+        <h2>SLAPP Suit Services</h2>
+        <div class="service-description">
+            <p>We are a streamlined, risk-mitigating legal services marketplace–enabling
+                individuals to take action, and law firms to help them do it.
+                Whether you're looking to protect your reputation or silence a critic,
+                our network of experienced firms ensures you have the best chance of winning.</p>
+        </div>
+        <section>
+            <h2>Some of Our Partnering Law Firms</h2>
+            <div class="partner-list">
+                <!-- Partner 1 -->
+                <div class="partner">
+                    <img src="https://via.placeholder.com/80" alt="Freedom & Justice LLP">
+                    <div>
+                        <h3>Freedom & Justice LLP</h3>
+                        <p>Experts in crafting powerful legal strategies for SLAPP suits, Freedom & Justice LLP has a proven track record of turning public criticism into favorable court outcomes for their clients.</p>
+                    </div>
+                </div>
+                <!-- Partner 2 -->
+                <div class="partner">
+                    <img src="https://via.placeholder.com/80" alt="Ironclad Legal Associates">
+                    <div>
+                        <h3>Rosen, Rosen, & Rosen</h3>
+                        <p>Known for their aggressive approach, the Rosen triplets represent clients who need to silence critics quickly and effectively through expertly managed SLAPP suits.</p>
+                    </div>
+                </div>
+                <!-- Partner 3 -->
+                <div class="partner">
+                    <img src="https://via.placeholder.com/80" alt="Shield & Hammer Attorneys">
+                    <div>
+                        <h3>Shield & Hammer Attorneys</h3>
+                        <p>Dedicated to protecting reputations, Shield & Hammer has extensive experience helping clients leverage SLAPP suits to their advantage in high-profile cases.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2024 Slap. All rights reserved.</p>
+        <p>&copy; 2024 SLAP. All rights reserved.</p>
     </footer>
 </body>
 </html>
