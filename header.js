@@ -7,19 +7,25 @@ const headerNav = `
         <a href="index.html">Home</a>
         <a href="testimonials.html">Testimonials</a>
         <div class="dropdown">
-            <a href="services.html">How it Works</a>
+            <a href="services.html">How It Works</a>
             <div class="dropdown-content">
                 <a href="ai.html">AI Evaluation Tool</a>
                 <a href="insurance.html">Insurance</a>
                 <a href="submission.html">Submit a Case</a>
             </div>
         </div>
-        <a href="partnerships.html">Partnerships</a>
+        <div class="dropdown">
+            <a href="partnerships.html">Partnerships</a>
+                <div class="dropdown-content">
+                    <a href="for_lawyers.html">For Lawyers</a>
+                </div>
+            </div>
         <a href="plans.html">Plans</a>
         <div class="dropdown">
-        <a href="about.html">About Us</a>
-        <div class="dropdown-content">
-            <a href="disclaimers.html">Disclaimers</a>
+            <a href="about.html">About Us</a>
+            <div class="dropdown-content">
+                <a href="disclaimers.html">Disclaimers</a>
+            </div>
         </div>
     </div>
     </nav>
