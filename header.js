@@ -16,7 +16,12 @@ const headerNav = `
         </div>
         <a href="partnerships.html">Partnerships</a>
         <a href="plans.html">Plans</a>
+        <div class="dropdown">
         <a href="about.html">About Us</a>
+        <div class="dropdown-content">
+            <a href="disclaimers.html">Disclaimers</a>
+        </div>
+    </div>
     </nav>
 
     <style>
