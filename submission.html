@@ -1,3 +1,5 @@
+<!-- email password: Bradsinnercircle -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,44 +7,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submit a Case - Slap</title>
     <script src="header.js" defer></script>
+    <link rel="stylesheet" href="style.css">    
+
+    <!-- Include the EmailJS library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Initialize EmailJS with your Public Key
+            emailjs.init("wcPk6eecJwPeU61Mi"); // Replace with your Public Key
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('file-upload').addEventListener('change', function () {
+                const files = this.files;
+                const maxFileSize = 45 * 1024; // 50KB
+                for (let file of files) {
+                    if (file.size > maxFileSize) {
+                        alert(`The file ${file.name} exceeds the 50KB limit and will not be uploaded.`);
+                        this.value = ''; // Clear the file input
+                    }
+                }
+            });
+            document.getElementById('case-form').addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Create a container for the GIF
+                let gifContainer = document.createElement('div');
+                gifContainer.style.position = 'fixed';
+                gifContainer.style.top = '50%';
+                gifContainer.style.left = '50%';
+                gifContainer.style.transform = 'translate(-50%, -50%)';
+                gifContainer.style.zIndex = '9999';
+
+                // Create the GIF element
+                const gif = document.createElement('img');
+                gif.src = 'https://media1.tenor.com/m/G4NmS0dSdwkAAAAd/cat-slap.gif'; // Replace with your GIF URL
+                gif.alt = 'Slap GIF';
+                gif.style.width = '200px'; // Adjust size if needed
+                gif.style.height = 'auto';
+
+                // Send the form data using EmailJS
+                emailjs.sendForm('service_8dhr0rm', 'template_nq2ergr', this)
+                    .then(() => {
+                        alert('Your case has been submitted successfully!');
+                    }, (error) => {
+                        console.error('Failed to send case:', error);
+                        alert('Failed to send your case. Please try again later.');
+                    })
+                    .finally(() => {
+                                    // Append the GIF to the container and then to the body
+                        gifContainer.appendChild(gif);
+                        document.body.appendChild(gifContainer);
+                        // Remove the GIF after 3 seconds
+                        setTimeout(() => {
+                            document.body.removeChild(gifContainer);
+                        }, 3000);
+                    });
+            });
+        };
+    </script>
+
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 0.5rem 0;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: 'Verdana', sans-serif;
-        }
-
-        nav a:hover {
-            color: #f4a261;
-        }
 
         .container {
             padding: 2rem;
@@ -77,74 +103,36 @@
             background: #f4a261;
         }
 
-        footer {
-            text-align: center;
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-
-        #gif-container {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 9999; /* Ensure it is on top of everything */
-            text-align: center;
-        }
-
-        #gif-container img {
-            max-width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
     <div id="header-container"></div>
     <main class="container">
-        <h2>Submit Your Case</h2>
-        <form id="case-form">
-            <label for="name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" required>
-
-            <label for="name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" required>
-
-            <label for="email">Email:</label>
+        <h2>Submit a Case</h2>
+        <form id="case-form" enctype="multipart/form-data">
+            <!-- Hidden field for a unique contact number (optional) -->
+            <input type="hidden" name="contact_number" value="case_001">
+        
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" required>
+        
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" required>
+        
+            <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
-
-            <label for="case-details">Case Details:</label>
-            <textarea id="case-details" name="case-details" rows="5" required></textarea>
-
+        
+            <label for="case-details">Case Details</label>
+            <textarea id="case-details" name="case_details" rows="5" required></textarea>
+        
+            <label for="file-upload">Upload Supporting Photos</label>
+            <input type="file" id="file-upload" name="photos" accept="image/*" multiple>
+        
             <button type="submit">Submit</button>
         </form>
-        <div id="gif-container"></div>
     </main>
     <footer>
         <p>&copy; 2024 Slap. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.getElementById('case-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            const gifContainer = document.getElementById('gif-container');
-
-            // Create an image element
-            const gif = document.createElement('img');
-            gif.src = 'https://media1.tenor.com/m/G4NmS0dSdwkAAAAd/cat-slap.gif'; // Replace with your GIF URL
-            gif.alt = 'Slap GIF';
-
-            // Append the GIF to the container
-            gifContainer.appendChild(gif);
-
-            // Remove the GIF after 3 seconds
-            setTimeout(() => {
-                gifContainer.removeChild(gif);
-            }, 4000);
-        });
-    </script>
 </body>
 </html>

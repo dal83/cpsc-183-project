@@ -5,46 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Case Evaluator - SLAP</title>
     <script src="header.js" defer></script>
+    <link rel="stylesheet" href="style.css">    
+
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #444;
-            padding: 0.5rem 0;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
-            font-family: 'Verdana', sans-serif;
-        }
-
-        nav a:hover {
-            color: #f4a261;
-        }
-
         .container {
             padding: 2rem;
             max-width: 800px;
@@ -62,8 +25,19 @@
         }
 
         .description {
-            text-align: center;
+            text-align: left;
             margin-bottom: 2rem;
+            line-height: 1.8; /* Add spacing between lines in the paragraphs */
+        }
+
+        .description p {
+            margin-bottom: 1rem; /* Add spacing between paragraphs */
+        }
+
+        ul {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding-left: 2rem; /* Indent bullet points one tab to the right */
         }
 
         .example {
@@ -77,14 +51,38 @@
             border: 1px solid #ddd;
             padding: 1rem;
             border-radius: 8px;
+            margin-bottom: 1rem; /* Add spacing between example boxes */
         }
 
-        footer {
+        .progress-bar-container {
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 1rem;
+            padding: 1rem;
             text-align: center;
-            background: #333;
-            color: #fff;
-            padding: 1rem 0;
-            margin-top: 2rem;
+        }
+
+        .progress-bar {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            display: block;
+            width: 82%; /* Adjust width based on the percentage */
+            height: 100%;
+            background: #4caf50; /* Green for success */
+        }
+
+        .progress-bar-text {
+            margin-top: 0.5rem;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -94,7 +92,7 @@
     <main class="container">
         <h2>AI Case Evaluator</h2>
         <div class="description">
-            <p>At SLAP, we understand the importance of knowing whether your SLAPP suit stands a chance in court. That's why we've developed an AI-powered tool that evaluates your submitted case and provides an accurate percentage likelihood of success!</p>
+            <p>At Slap, we understand the importance of knowing whether your suit stands a chance in court. That's why we've developed an AI-powered tool that evaluates your submitted case and provides an accurate percentage likelihood of success!</p>
             <p>Our proprietary AI scans your submission for key winning factors, including:</p>
             <ul>
                 <li>The volume of unnecessary legal jargon used</li>
@@ -106,8 +104,11 @@
         <section class="example">
             <h2>How It Works: An Example</h2>
             <p><strong>Submitted Case:</strong> "I want to sue my HOA for defamation because they sent an email to all the residents accusing me of overwatering my lawn. Now the neighbors are calling me 'Sprinkler Sally,' and I’ve lost social standing at block parties."</p>
-            <p><strong>AI Evaluation:</strong> The AI tool scans the case for its frivolity, dramatic elements, and likelihood of success. <em>Result:</em> <strong>82% chance of winning!</strong> (The AI notes that the nickname is defamatory and that your HOA is clearly engaging in a smear campaign against your landscaping skills.)</p>
-        </section>
+            <p><strong>AI Evaluation:</strong> The AI tool evaluates the evidence and context provided.</p>
+            <p><em>Result:</em> <strong>82% chance of success!</strong> (The AI notes that the nickname could be defamatory and that your HOA may be engaging in targeted harassment.)</p>
+            <div class="progress-bar"></div>
+            <div class="progress-bar-text">82% Success Probability</div>            
+       </section>
     </main>
     <footer>
         <p>&copy; 2024 SLAP. All rights reserved.</p>
