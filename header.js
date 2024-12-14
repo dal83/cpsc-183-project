@@ -158,7 +158,7 @@ const headerNav = `
 
         /* Footer Styles */
         footer {
-            background: #007aff;
+            background: #25527f;
             color: #ffffff;
             text-align: center;
             padding: 1rem;
