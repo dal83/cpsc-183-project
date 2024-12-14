@@ -3,7 +3,7 @@ const headerNav = `
         <div class="header-content">
             <h1 class="site-title">SLAP</h1>
             <h6 class="site-tagline">Access Justice.</h6>
-            <button class="log-in">Log In</button>
+            <a href="login.html" class="log-in">Log In</a>
         </div>
     </header>
     <nav>
