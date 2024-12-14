@@ -3,6 +3,7 @@ const headerNav = `
         <div class="header-content">
             <h1 class="site-title">SLAP</h1>
             <h6 class="site-tagline">Access Justice.</h6>
+            <button class="log-in">Log In</button>
         </div>
     </header>
     <nav>
@@ -45,14 +46,15 @@ const headerNav = `
         /* Header Styles */
         header {
             background: linear-gradient(to right, #25527f, #5e88b1);
-            text-align: center;
-            padding: 3rem 1rem;
+            padding: 1rem;
+            position: relative;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .site-title {
@@ -60,6 +62,7 @@ const headerNav = `
             color: #fff;
             font-weight: 700;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
 
         .site-tagline {
@@ -68,9 +71,29 @@ const headerNav = `
             font-size: 1.4rem;
             margin-top: 0.5rem;
             font-style: italic;
+            text-align: center;
         }
 
-        /* Navigation Styles */
+        .log-in {
+            position: absolute;
+            top: 1rem;
+            right: 0.5rem; /* Adjusted this value to move it further to the right */
+            background: #ffffff;
+            color: #007aff;
+            border: 1px solid #007aff;
+            border-radius: 12px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .log-in:hover {
+            background: #007aff;
+            color: #ffffff;
+        }
+
         nav {
             display: flex;
             justify-content: center;
@@ -120,7 +143,6 @@ const headerNav = `
             transform: rotate(180deg);
         }
 
-
         .dropdown:hover .dropdown-content {
             display: block;
         }
@@ -154,7 +176,6 @@ const headerNav = `
             background: #007aff; /* Highlight background on hover */
             color: #fff;
         }
-
 
         /* Footer Styles */
         footer {
