@@ -1,5 +1,3 @@
-<!-- email password: Bradsinnercircle -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +7,10 @@
     <script src="header.js" defer></script>
     <link rel="stylesheet" href="style.css">    
 
-    <!-- Include the EmailJS library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Initialize EmailJS with your Public Key
-            emailjs.init("wcPk6eecJwPeU61Mi"); // Replace with your Public Key
+            emailjs.init("wcPk6eecJwPeU61Mi"); // public key here
         })();
     </script>
     <script type="text/javascript">
@@ -25,14 +21,13 @@
                 for (let file of files) {
                     if (file.size > maxFileSize) {
                         alert(`The file ${file.name} exceeds the 50KB limit and will not be uploaded.`);
-                        this.value = ''; // Clear the file input
+                        this.value = '';
                     }
                 }
             });
             document.getElementById('case-form').addEventListener('submit', function (event) {
-                event.preventDefault(); // Prevent default form submission
+                event.preventDefault();
 
-                // Create a container for the GIF
                 let gifContainer = document.createElement('div');
                 gifContainer.style.position = 'fixed';
                 gifContainer.style.top = '50%';
@@ -40,14 +35,12 @@
                 gifContainer.style.transform = 'translate(-50%, -50%)';
                 gifContainer.style.zIndex = '9999';
 
-                // Create the GIF element
                 const gif = document.createElement('img');
-                gif.src = 'https://media1.tenor.com/m/G4NmS0dSdwkAAAAd/cat-slap.gif'; // Replace with your GIF URL
+                gif.src = 'https://media1.tenor.com/m/G4NmS0dSdwkAAAAd/cat-slap.gif';
                 gif.alt = 'Slap GIF';
-                gif.style.width = '200px'; // Adjust size if needed
+                gif.style.width = '200px'; // might wanna adjust size
                 gif.style.height = 'auto';
 
-                // Send the form data using EmailJS
                 emailjs.sendForm('service_8dhr0rm', 'template_nq2ergr', this)
                     .then(() => {
                         alert('Your case has been submitted successfully!');
@@ -56,10 +49,8 @@
                         alert('Failed to send your case. Please try again later.');
                     })
                     .finally(() => {
-                                    // Append the GIF to the container and then to the body
                         gifContainer.appendChild(gif);
                         document.body.appendChild(gifContainer);
-                        // Remove the GIF after 3 seconds
                         setTimeout(() => {
                             document.body.removeChild(gifContainer);
                         }, 3000);
@@ -110,7 +101,6 @@
     <main class="container">
         <h2>Submit a Case</h2>
         <form id="case-form" enctype="multipart/form-data">
-            <!-- Hidden field for a unique contact number (optional) -->
             <input type="hidden" name="contact_number" value="case_001">
         
             <label for="first-name">First Name</label>
@@ -125,7 +115,7 @@
             <label for="case-details">Case Details</label>
             <textarea id="case-details" name="case_details" rows="5" required></textarea>
         
-            <label for="file-upload">Upload Supporting Photos</label>
+            <label for="file-upload">Upload Supporting Files</label>
             <input type="file" id="file-upload" name="photos" accept="image/*" multiple>
         
             <button type="submit">Submit</button>
