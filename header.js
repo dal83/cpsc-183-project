@@ -1,7 +1,7 @@
 const headerNav = `
     <header>
         <div class="header-content">
-            <h1 class="site-title">Slap</h1>
+            <h1 class="site-title">SLAP</h1>
             <h6 class="site-tagline">Access Justice.</h6>
         </div>
     </header>
